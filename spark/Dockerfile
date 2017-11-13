@@ -33,7 +33,7 @@ RUN		mkdir -p /usr/local/spark \
 		&& tar -zxvf spark-2.2.0-bin-hadoop2.7.tgz -C /usr/local/spark \
 		&& rm -rf spark-2.2.0-bin-hadoop2.7.tgz
 
-
+ADD             start_spark.sh    /usr/local/
 
 ENV		JAVA_HOME=/usr/lib/java/jdk1.8.0_151
 ENV		PATH=$PATH:$JAVA_HOME/bin
@@ -43,4 +43,5 @@ ENV             PATH=$PATH:$SCALA_HOME/bin
 
 #CMD            	/usr/local/spark/spark-2.2.0-bin-hadoop2.7/sbin/start-all.sh
 #CMD            /bin/bash/echo "hello-world"
-CMD		/usr/local/spark/spark-2.2.0-bin-hadoop2.7/sbin/start-master.sh
+#CMD		/usr/local/spark/spark-2.2.0-bin-hadoop2.7/sbin/start-master.sh
+CMD             /bin/bash /usr/local/start_spark.sh
